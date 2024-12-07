@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,14 +78,16 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+print(os.getenv('DB_NAME'))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'your_db_name'),  # The name of your database
-        'USER': os.getenv('DB_USER', 'your_db_user'),  # The user for the database
-        'PASSWORD': os.getenv('DB_PASSWORD', 'your_db_password'),  # The password for the database
-        'HOST': os.getenv('DB_HOST', 'db'),  # The hostname of the database, usually 'db' in Docker
-        'PORT': os.getenv('DB_PORT', '5432'),  # The port for PostgreSQL
+        'NAME': os.getenv('DB_NAME'),  # The name of your database
+        'USER': os.getenv('DB_USER'),  # The user for the database
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # The password for the database
+        'HOST': 'db',  # The hostname of the database, usually 'db' in Docker
+        'PORT': '5432',  # The port for PostgreSQL
     }
 }
 
