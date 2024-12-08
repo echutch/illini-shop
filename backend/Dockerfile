@@ -18,11 +18,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the Django project files into the container
 COPY . /app/
 
-COPY wait-for-it.sh /wait-for-it.sh
-RUN chmod +x /wait-for-it.sh
-
 # Expose the port Django will run on
 EXPOSE 8000
 
 # Command to run Django when the container starts
-CMD ["./wait-for-it.sh", "db:5432", "--", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
