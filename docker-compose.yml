@@ -5,9 +5,9 @@ services:
     container_name: db
     image: postgres:13
     environment:
-      POSTGRES_USER: ${DB_USER}         # Your desired username
-      POSTGRES_PASSWORD: ${DB_PASSWORD}  # Your desired password
-      POSTGRES_DB: ${DB_NAME}    # Your desired database name
+      POSTGRES_USER: ${DB_USER}         
+      POSTGRES_PASSWORD: ${DB_PASSWORD} 
+      POSTGRES_DB: ${DB_NAME}    
     ports:
       - "5432:5432"
     volumes:
@@ -27,7 +27,7 @@ services:
     env_file:
       - .env
     environment:
-      - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}  # Use the same username/password as in the db service
+      - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}  
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
     depends_on:
       - db
