@@ -13,13 +13,15 @@ WORKDIR /app
 COPY requirements.txt /app/
 
 # Install Python dependencies inside the container
+RUN apt-get update && apt-get install -y gcc libpq-dev
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the Django project files into the container
-COPY . /app/
+#COPY . /app/
 
 # Expose the port Django will run on
 EXPOSE 8000
 
 # Command to run Django when the container starts
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["watchmedo", "auto-restart", "--patterns=*.py", "--recursive", "--", "python", "/app/manage.py", "runserver", "0.0.0.0:8000"]

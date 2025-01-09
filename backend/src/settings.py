@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import environ
-
-env = environ.Env()
-environ.Env.read_env()
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "app"
 ]
 
 MIDDLEWARE = [
@@ -78,7 +77,7 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-print(os.getenv('DB_NAME'))
+#print(os.getenv('DB_NAME'))
 
 DATABASES = {
     'default': {
@@ -86,7 +85,7 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME'),  # The name of your database
         'USER': os.getenv('DB_USER'),  # The user for the database
         'PASSWORD': os.getenv('DB_PASSWORD'),  # The password for the database
-        'HOST': 'db',  # The hostname of the database, usually 'db' in Docker
+        'HOST': 'db',  # The hostname of the database, usually 'db' in Docker 
         'PORT': '5432',  # The port for PostgreSQL
     }
 }
