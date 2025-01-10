@@ -19,3 +19,16 @@ When finished, run
 ```
 docker compose down
 ```
+
+
+## Backend Setup
+
+Run all commands in backend container. To start, get the .env file credentials to access the Django app. On first startup of backend, run
+```
+python manage.py migrate
+```
+to set up the backend database connection. To gain admin credentials, run
+```
+python manage.py createsuperuser
+```
+and create a username and password.
