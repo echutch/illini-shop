@@ -4,4 +4,4 @@ django-environ
 python-dotenv
 watchdog
 djangorestframework
-djoser
+django-cors-headers

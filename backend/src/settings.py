@@ -43,12 +43,14 @@ INSTALLED_APPS = [
     "app",
     'rest_framework',
     'rest_framework.authtoken',
-    'djoser'
+    #'djoser',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -137,23 +139,25 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-}
+#REST_FRAMEWORK = {
+ #   'DEFAULT_AUTHENTICATION_CLASSES': [
+  #      'rest_framework.authentication.TokenAuthentication',
+   # ],
+    #'DEFAULT_PERMISSION_CLASSES': [
+     #   'rest_framework.permissions.IsAuthenticated',
+    #],
+#}
 
-DJOSER = {
-    'LOGIN_FIELD': 'email',
-    'USER_CREATE_PASSWORD_RETYPE': True,
-    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-    'SEND_ACTIVATION_EMAIL': True,
-    'SERIALIZERS': {
-        'user_create': 'djoser.serializers.UserCreateSerializer',
-        'user': 'djoser.serializers.UserSerializer',
-    },
-}
+#DJOSER = {
+ #   'LOGIN_FIELD': 'email',
+  #  'USER_CREATE_PASSWORD_RETYPE': True,
+   # 'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+    #'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    #'SEND_ACTIVATION_EMAIL': True,
+    #'SERIALIZERS': {
+     #   'user_create': 'djoser.serializers.UserCreateSerializer',
+      #  'user': 'djoser.serializers.UserSerializer',
+    #},
+#}
+
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
