@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "app",
     'rest_framework',
     'rest_framework.authtoken',
-    #'djoser',
-    'corsheaders'
+    'rest_framework_simplejwt',
+    'corsheaders',
+    'products',
+    'carts',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -139,25 +141,14 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#REST_FRAMEWORK = {
- #   'DEFAULT_AUTHENTICATION_CLASSES': [
-  #      'rest_framework.authentication.TokenAuthentication',
-   # ],
-    #'DEFAULT_PERMISSION_CLASSES': [
-     #   'rest_framework.permissions.IsAuthenticated',
-    #],
-#}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
 
-#DJOSER = {
- #   'LOGIN_FIELD': 'email',
-  #  'USER_CREATE_PASSWORD_RETYPE': True,
-   # 'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
-    #'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-    #'SEND_ACTIVATION_EMAIL': True,
-    #'SERIALIZERS': {
-     #   'user_create': 'djoser.serializers.UserCreateSerializer',
-      #  'user': 'djoser.serializers.UserSerializer',
-    #},
-#}
 
 CORS_ALLOWED_ORIGINS = ['http://localhost:5173']

@@ -12,19 +12,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-class CartItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     total = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
 
-class Post(models.Model):
-    title = models.CharField(max_length=200)
-    body = models.TextField()
-
-    def __str__(self):
-        return f"Post: {self.title}"
