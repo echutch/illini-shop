@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import './App.css'
+import Header from './components/Header'
+import Product from './components/Product';
 
 function App() {
   const [data, setData] = useState([])
@@ -9,7 +11,7 @@ function App() {
     async function fetchData() {
       console.log(import.meta.env.VITE_API_URL)
       try {
-        const response = await fetch (`${import.meta.env.VITE_API_URL}posts`);
+        const response = await fetch (`${import.meta.env.VITE_API_URL}products`);
         if (!response.ok) {
           throw new Error('Network response failed');
         }
@@ -23,14 +25,31 @@ function App() {
 
     fetchData();
   }, []);
+
+  const handleAddToCart = (name) => {
+    console.log(`${name} added to cart`);
+  };
   
 
   return (
     <>
-    test
-      
+    <Header />
+    <main>
+      <div className="product-list">
+        {data.map((item, index) => (
+          <Product
+          key={index}
+          name={item.name}
+          price={item.price}
+          stock={item.stock}
+          description={item.description}
+          onAddToCart={() => handleAddToCart(item.name)}
+          />
+        ))}
+      </div>
+    </main>
     </>
-  )
+  );
 }
 
 export default App
