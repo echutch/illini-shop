@@ -1,0 +1,88 @@
+.login-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 2rem 4rem;
+    background-color: #2a2a2a; /* Dark grey to match the header */
+}
+
+.login-screen h2 {
+    font-size: 2em;
+    color: #ffffff; /* White text for contrast */
+    margin-bottom: 1.5rem;
+}
+
+.login-screen form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #3a3a3a; /* Slightly lighter grey for the form background */
+    padding: 2rem;
+    border: 1px solid #535bf2; /* Purple border to match the theme */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+    margin: 0 1rem; /* Add space on the left and right */
+}
+
+.login-screen form div {
+    margin-bottom: 1.5rem;
+}
+
+.login-screen label {
+    display: block;
+    font-weight: bold;
+    color: #ffffff; /* White text for visibility */
+    margin-bottom: 0.5rem;
+}
+
+.login-screen input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.login-screen input:focus {
+    outline: none;
+    border-color: #646cff;
+    box-shadow: 0 0 4px rgba(100, 108, 255, 0.4);
+}
+
+.login-screen button {
+    width: 100%;
+    background-color: #646cff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-screen button:hover {
+    background-color: #535bf2;
+}
+
+.login-screen button:active {
+    background-color: #404db7;
+}
+
+.login-screen .form-footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #cccccc; /* Light grey for the footer text */
+}
+
+.login-screen .form-footer a {
+    color: #646cff;
+    text-decoration: none;
+}
+
+.login-screen .form-footer a:hover {
+    text-decoration: underline;
+}

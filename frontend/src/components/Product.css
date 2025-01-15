@@ -4,7 +4,7 @@
     border-radius: 8px;
 }
 
-.add-to-cart {
+.add-to-cart, .log-in {
     background-color: #646cff;
     color: white;
     border: none;
@@ -14,6 +14,6 @@
     cursor: pointer;
 }
 
-.add-to-cart:hover {
+.add-to-cart:hover, .log-in:hover {
     background-color: #535bf2;
 }

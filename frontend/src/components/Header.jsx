@@ -1,6 +1,6 @@
 import './Header.css'
 
-const Header = () => {
+const Header = ({onLoginClick}) => {
     return (
         <header className="header">
             <h1>Illini Shop</h1>
@@ -11,7 +11,7 @@ const Header = () => {
             </nav>
 
             <nav>
-                <a href="/">Log in</a>
+                <button className="log-in" onClick={onLoginClick}>Log In</button>
             </nav>
         </header>
         

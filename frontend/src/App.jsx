@@ -3,9 +3,12 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Product from './components/Product';
+import LoginScreen from './components/Login';
+import BodyContent from './components/BodyContent';
 
 function App() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [view, setView] = useState('main');
 
   useEffect(()=> {
     async function fetchData() {
@@ -33,21 +36,13 @@ function App() {
 
   return (
     <>
-    <Header />
-    <main>
-      <div className="product-list">
-        {data.map((item, index) => (
-          <Product
-          key={index}
-          name={item.name}
-          price={item.price}
-          stock={item.stock}
-          description={item.description}
-          onAddToCart={() => handleAddToCart(item.name)}
-          />
-        ))}
-      </div>
-    </main>
+    <Header onLoginClick={() => setView('login')} />
+    {view == 'main' ? (
+      <BodyContent data={data} onAddToCart={handleAddToCart} />
+    ) : (
+      <LoginScreen />
+    )}
+    
     </>
   );
 }
