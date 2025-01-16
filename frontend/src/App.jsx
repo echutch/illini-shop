@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Product from './components/Product';
 import LoginScreen from './components/Login';
 import BodyContent from './components/BodyContent';
+import RegisterScreen from './components/RegisterScreen';
 
 function App() {
   const [data, setData] = useState([]);
@@ -39,8 +40,11 @@ function App() {
     <Header onLoginClick={() => setView('login')} />
     {view == 'main' ? (
       <BodyContent data={data} onAddToCart={handleAddToCart} />
+    ) : view == 'login' ? (
+      <LoginScreen onSignUpClick={() => setView('register')} />
     ) : (
-      <LoginScreen />
+      <RegisterScreen onBackToLoginClick={() => setView('login')} />
+
     )}
     
     </>

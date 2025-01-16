@@ -1,5 +1,5 @@
 import './Login.css'
-const LoginScreen = () => (
+const LoginScreen = ({ onSignUpClick }) => (
     <main>
         <div className="login-screen">
   <h2>Log In</h2>
@@ -16,7 +16,7 @@ const LoginScreen = () => (
   </form>
   <div className="form-footer">
     <p>
-      Don't have an account? <a href="/signup">Sign Up</a>
+      Don't have an account? <a onClick={onSignUpClick}>Sign Up</a>
     </p>
   </div>
 </div>
